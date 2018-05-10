@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chatapp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        .custom-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+
+        }
+
+        .chat-container {
+            overflow-y: scroll;
+            height: 50vh;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="select">
+
+
+        <div>
+            <h2 class="flow-text center-align">Welcome to the chat app</h2>
+            <ol id="messages" class="collection  chat-container">
+
+            </ol>
+
+
+
+        </div>
+        <div class="page-footer blue custom-footer">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card-panel">
+                            <div class="input-field">
+                                <label for="message">Message</label>
+                                <input type="text" name="message" id="message" required>
+                            </div>
+                            <input type="submit" value="Send" class="btn blue sub">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="/Js/moment.js"></script>
+    <script src="/Js/handlebars.js"></script>
+    <script id="message-template" type="text/x-handlebars-template">
+    
+
+            <i class="material-icons circle">folder</i>
+            <span class="title grey-text lighten-3">{{createdAt}}</span>
+            <p class="blue-text">{{from}}</p>
+            <p class='flow-text green-text '>{{text}}</p>
+    </li>
+    
+    </script>
+    <script src="/Js/chat.js"></script>
+</body>
+
+</html>
