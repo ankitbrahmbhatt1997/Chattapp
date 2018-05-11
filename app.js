@@ -46,11 +46,10 @@ io.on("connection", socket => {
   socket.on("disconnect", () => {
     console.log("User Disconnected");
     let removedUser = users.removeUser(socket.id);
-    console.log(users.getUserList(removedUser.room));
 
     io
       .to(removedUser.room)
-      .emit("UsersList", users.getUserList(removedUser.room));
+      .emit("updatedUsersList", users.getUserList(removedUser.room));
     io
       .to(removedUser.room)
       .emit(

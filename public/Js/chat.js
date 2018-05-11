@@ -15,7 +15,8 @@ socket.on("connect", function() {
       alert(err);
       window.location.href = "/";
     } else {
-      console.log("No error");
+      heading = document.querySelector(".heading");
+      heading.innerHTML = `Welcome to ${params.room} group`;
     }
   });
 
@@ -23,16 +24,10 @@ socket.on("connect", function() {
   let submit = document.querySelector(".sub");
   submit.addEventListener("click", function(e) {
     e.preventDefault();
-    socket.emit(
-      "createMessage",
-      {
-        from: "User",
-        text: message.value
-      },
-      function(mess) {
-        console.log(mess);
-      }
-    );
+    socket.emit("createMessage", {
+      from: "User",
+      text: message.value
+    });
   });
 });
 
@@ -41,7 +36,28 @@ socket.on("disconnect", function() {
 });
 
 socket.on("UsersList", function(users) {
-  console.log(users);
+  let usersCol = document.querySelector("#people");
+
+  usersCol.innerHTML = `<p class="flow-text white-text">Active Users</p>`;
+  users.forEach(user => {
+    let oneUser = document.createElement("div");
+    oneUser.classList.add("card-panel");
+    oneUser.classList.add("blue-text");
+    oneUser.innerHTML = `${user}`;
+    usersCol.appendChild(oneUser);
+  });
+});
+socket.on("updatedUsersList", function(users) {
+  let usersCol = document.querySelector("#people");
+
+  usersCol.innerHTML = `<p class="flow-text white-text">Active Users</p>`;
+  users.forEach(user => {
+    let oneUser = document.createElement("div");
+    oneUser.classList.add("card-panel");
+    oneUser.classList.add("blue-text");
+    oneUser.innerHTML = `${user}`;
+    usersCol.appendChild(oneUser);
+  });
 });
 
 socket.on("newMessage", function(message) {

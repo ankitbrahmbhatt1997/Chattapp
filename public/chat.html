@@ -10,16 +10,38 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <style>
+        body {
+            overflow: hidden;
+        }
+
+        #select {
+            height: 100vh;
+        }
+
+        #select .custom-row {
+            height: 100%;
+        }
+
         .custom-footer {
-            position: fixed;
+            position: absolute;
             bottom: 0;
             width: 100%;
 
         }
 
+        .col-2 {
+            padding: 0 !important;
+        }
+
+        .custom-col {
+            position: relative;
+            height: 100%;
+
+        }
+
         .chat-container {
             overflow-y: scroll;
-            height: 50vh;
+            height: 60vh;
         }
     </style>
 </head>
@@ -27,29 +49,39 @@
 <body>
     <header id="select">
 
+        <div class="row custom-row">
+            <div class="col s2 custom-col blue darken-2" id="people">
 
-        <div>
-            <h2 class="flow-text center-align">Welcome to the chat app</h2>
-            <ol id="messages" class="collection  chat-container">
+            </div>
+            <div class="col s10 custom-col  col-2">
+                <div>
+                    <h2 class="flow-text center-align blue-text text-darken-2 heading">Welcome to the chat app</h2>
+                    <ol id="messages" class="collection chat-container">
 
-            </ol>
+                    </ol>
 
 
 
-        </div>
-        <div class="page-footer blue custom-footer">
-            <div class="container">
+                </div>
+                <div class="blue darken-2 custom-footer">
 
-                <div class="row">
-                    <div class="col s12">
-                        <div class="card-panel">
-                            <div class="input-field">
-                                <label for="message">Message</label>
-                                <input type="text" name="message" id="message" required>
+
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="card-panel">
+                                <div class="row">
+                                    <div class="input-field col s10">
+                                        <label for="message">Message</label>
+                                        <input type="text" name="message" id="message" required>
+                                    </div>
+                                    <div class="col s2">
+                                        <input type="submit" value="Send" class="btn-large blue sub ">
+                                    </div>
+                                </div>
                             </div>
-                            <input type="submit" value="Send" class="btn blue sub">
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -62,10 +94,10 @@
     
 
             <i class="material-icons circle">folder</i>
-            <span class="title grey-text lighten-3">{{createdAt}}</span>
-            <p class="blue-text">{{from}}</p>
+            <span class="grey-text lighten-3">{{createdAt}}</span>
+            <p class="title blue-text">{{from}}</p>
             <p class='flow-text green-text '>{{text}}</p>
-    </li>
+   
     
     </script>
     <script src="/Js/chat.js"></script>
