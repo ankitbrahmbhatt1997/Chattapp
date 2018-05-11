@@ -42,7 +42,9 @@ socket.on("UsersList", function(users) {
   usersCol.innerHTML = `<p class="flow-text white-text">Active Users</p>`;
   users.forEach(user => {
     let oneUser = document.createElement("div");
-    oneUser.classList.add("card-panel");
+    oneUser.classList.add("white");
+    oneUser.classList.add("custom-user");
+
     oneUser.classList.add("blue-text");
     oneUser.innerHTML = `${user}`;
     usersCol.appendChild(oneUser);
