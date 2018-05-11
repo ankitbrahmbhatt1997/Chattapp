@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+
     <style>
         body {
-            overflow: hidden;
+            overflow-y: hidden;
+
         }
 
         #select {
@@ -52,14 +54,14 @@
     </style>
 </head>
 
-<body>
+<body class="blue darken-2">
     <header id="select">
 
         <div class="row custom-row">
-            <div class="col s2 custom-col blue darken-2" id="people">
+            <div class="col s2 custom-col" id="people">
 
             </div>
-            <div class="col s10 custom-col  col-2">
+            <div class="col s10 custom-col  col-2 white">
                 <div>
                     <h2 class="flow-text center-align blue-text text-darken-2 heading">Welcome to the chat app</h2>
                     <ol id="messages" class="collection chat-container">
@@ -76,12 +78,12 @@
                         <div class="col s12">
                             <div class="card-panel">
                                 <div class="row">
-                                    <div class="input-field col s10">
+                                    <div class="input-field col s6 m10">
                                         <label for="message">Message</label>
                                         <input type="text" name="message" id="message" required>
                                     </div>
-                                    <div class="col s2">
-                                        <input type="submit" value="Send" class="btn-large blue sub ">
+                                    <div class="col s6 m2">
+                                        <button type="submit" class=" btn blue material-icons sub">chevron_right</button>
                                     </div>
                                 </div>
                             </div>
@@ -99,7 +101,7 @@
     <script id="message-template" type="text/x-handlebars-template">
     
 
-            <i class="material-icons circle">folder</i>
+            <i class="material-icons circle blue-text white">face</i>
             <span class="grey-text lighten-3">{{createdAt}}</span>
             <p class="title blue-text">{{from}}</p>
             <p class='flow-text green-text '>{{text}}</p>
