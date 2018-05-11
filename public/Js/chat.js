@@ -28,6 +28,7 @@ socket.on("connect", function() {
       from: "User",
       text: message.value
     });
+    message.value = "";
   });
 });
 
