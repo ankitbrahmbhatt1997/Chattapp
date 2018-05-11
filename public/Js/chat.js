@@ -16,7 +16,9 @@ socket.on("connect", function() {
       window.location.href = "/";
     } else {
       heading = document.querySelector(".heading");
-      heading.innerHTML = `Welcome to ${params.room} group`;
+      heading.innerHTML = `Welcome to <span class="blue-text">${
+        params.room
+      }</span> group`;
     }
   });
 
